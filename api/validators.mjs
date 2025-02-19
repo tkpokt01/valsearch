@@ -1,12 +1,12 @@
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { Analytics } from "@vercel/analytics/react"
+//import { Analytics } from "@vercel/analytics/react"
 
 // Get current directory path
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-<Analytics />
+//<Analytics />
 export default async (req, res) => {
     try {
         // Use correct path resolution
