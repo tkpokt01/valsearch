@@ -13,5 +13,8 @@
     "express": "5.0.1",
     "cors": "^2.8.5",
     "live-server": "^1.2.2"
+  },
+  "engines" : {
+    "node" : ">=20.0.0"
   }
 }
