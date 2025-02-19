@@ -13,7 +13,7 @@
   ],
   "functions": {
     "api/validators.mjs": {
-      "runtime": "nodejs@20.0.0",
+      "runtime": "nodejs@23.8.0",
       "includeFiles": "api/active.txt"
     }
   }
