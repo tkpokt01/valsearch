@@ -1,6 +1,7 @@
 {
   "name": "valsearch",
   "version": "1.0.0",
+  "type" : "module",
   "scripts": {
     "dev": "npm run serve-frontend & npm run serve-backend",
     "serve-frontend": "live-server public --port=3000",
