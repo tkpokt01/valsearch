@@ -10,11 +10,6 @@
       "src": "/(.*)",
       "dest": "/public/$1"
     }
-  ],
-  "functions": {
-    "api/validators.mjs": {
-      "runtime": "nodejs@23.8.0",
-      "includeFiles": "api/active.txt"
-    }
-  }
+  ]
+  
 }
