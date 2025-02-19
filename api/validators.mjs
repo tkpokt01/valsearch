@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react"
 // Get current directory path
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
+<Analytics />
 export default async (req, res) => {
     try {
         // Use correct path resolution
