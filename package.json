@@ -1,7 +1,7 @@
 {
   "name": "valsearch",
   "version": "1.0.0",
-  "type" : "module",
+  "type": "module",
   "scripts": {
     "dev": "npm run serve-frontend & npm run serve-backend",
     "serve-frontend": "live-server public --port=3000",
@@ -10,11 +10,12 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "express": "5.0.1",
+    "@vercel/analytics": "^1.5.0",
     "cors": "^2.8.5",
+    "express": "5.0.1",
     "live-server": "^1.2.2"
   },
-  "engines" : {
-    "node" : ">=20.0.0"
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
