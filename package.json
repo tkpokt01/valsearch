@@ -1,0 +1,16 @@
+{
+  "name": "valsearch",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm run serve-frontend & npm run serve-backend",
+    "serve-frontend": "live-server public --port=3000",
+    "serve-backend": "node server.js",
+    "build": "echo 'No build needed'",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "express": "5.0.1",
+    "cors": "^2.8.5",
+    "live-server": "^1.2.2"
+  }
+}
