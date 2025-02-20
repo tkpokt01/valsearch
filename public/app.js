@@ -32,7 +32,7 @@ async function searchValidators() {
         
         // Update results count
         document.getElementById('count').textContent = 
-            `Found ${data.count} ${currentMode} validators (showing ${data.results.length})`;
+            `Found ${data.count} ${currentMode} addresses (showing ${data.results.length})`;
         
         // Populate table
         data.results.forEach(validator => {
