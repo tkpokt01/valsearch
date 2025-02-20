@@ -17,10 +17,11 @@ document.getElementById('exitedMode').addEventListener('click', () => {
 
 async function searchValidators() {
     const minBalance = document.getElementById('minBalance').value;
+    const searchAddress = document.getElementById('searchAddress').value.toLowerCase();
     const type = document.querySelector('.mode-btn.active').id.replace('Mode', '');
     
     try {
-        const response = await fetch(`/api/validators?min=${minBalance}&type=${type}`);
+        const response = await fetch(`/api/validators?min=${minBalance}&type=${type}&address=${encodeURIComponent(searchAddress)}`);
         
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         
@@ -32,7 +33,7 @@ async function searchValidators() {
         
         // Update results count
         document.getElementById('count').textContent = 
-            `Found ${data.count} ${currentMode} addresses (showing ${data.results.length})`;
+            `Found ${data.count} ${currentMode} validators (showing ${data.results.length})`;
         
         // Populate table
         data.results.forEach(validator => {

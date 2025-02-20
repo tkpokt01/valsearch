@@ -10,6 +10,7 @@ export default async (req, res) => {
         // Get query parameters
         const type = req.query.type || 'active';
         const minBalance = parseFloat(req.query.min) || 0;
+        const searchAddress = (req.query.address || '').toLowerCase();
         const fileName = `${type}.txt`;
 
         // Validate file name
@@ -27,23 +28,25 @@ export default async (req, res) => {
 
         // Process validators
         const validators = rawData
-            .split('\n')
-            .filter(line => line.trim())
-            .map(line => {
-                const [address, balanceStr] = line.split(',');
-                const [whole, decimal] = balanceStr.split('.');
-                
-                return {
-                    address: address.trim(),
-                    balance: parseFloat(`${whole}.${decimal}`),
-                    status: 'Over'
-                };
-            });
+        .split('\n')
+        .filter(line => line.trim())
+        .map(line => {
+            const [address, balanceStr] = line.split(',');
+            const [whole, decimal] = balanceStr.split('.');
+            
+            return {
+                address: address.trim().toLowerCase(), // Store lowercase for easier matching
+                balance: parseFloat(`${whole}.${decimal}`),
+                status: 'Over'
+            };
+        });
 
-        // Filter and sort
-        const filtered = validators
-            .filter(v => v.balance >= minBalance)
-            .sort((a, b) => b.balance - a.balance);
+    // Filter logic
+    const filtered = validators.filter(v => {
+        const matchesBalance = v.balance >= minBalance;
+        const matchesAddress = searchAddress ? v.address.includes(searchAddress) : true;
+        return matchesBalance && matchesAddress;
+    }).sort((a, b) => b.balance - a.balance);
 
         // Set headers and return response
         res.setHeader('Content-Type', 'application/json');
