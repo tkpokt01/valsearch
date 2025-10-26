@@ -4,7 +4,7 @@
       { "src": "public/*", "use": "@vercel/static" }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/api/validators.js" },
+      { "src": "/api/(.*)", "dest": "/api/validators.mjs" },
       { "src": "/(.*)", "dest": "/public/$1" }
     ]
   }
