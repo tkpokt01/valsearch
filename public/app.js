@@ -9,7 +9,7 @@ document.getElementById('activeMode').addEventListener('click', () => {
 });
 
 document.getElementById('exitedMode').addEventListener('click', () => {
-    currentMode = 'exited';
+    currentMode = 'exiting';
     document.getElementById('exitedMode').classList.add('active');
     document.getElementById('activeMode').classList.remove('active');
     clearResults();
